@@ -1,0 +1,88 @@
+header {
+    background: #0A1A3C; /* Deep Royal Blue */
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+/* Page Title Section */
+.page-title {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f4f7f6;
+}
+
+.category-section {
+    padding: 40px 5%;
+}
+
+.category-header h2 {
+    color: #0A1A3C;
+    margin-bottom: 5px;
+}
+
+.category-header hr {
+    width: 50px;
+    border: 2px solid #FFD700; /* Gold line under category name */
+    margin: 0 0 30px 0;
+}
+
+/* Price Styling */
+.price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2ecc71; /* Green for money/price */
+    margin: 15px 0;
+}
+
+/* Button Styling */
+.buy-btn {
+    background-color: #0A1A3C;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buy-btn:hover {
+    background-color: #25D366; /* WhatsApp Green on hover */
+}
+ooter {
+    background-color: #0A1A3C;
+    color: white;
+    padding: 40px 5% 10px 5%;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-bottom: 1px solid #ffffff33;
+    padding-bottom: 20px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
