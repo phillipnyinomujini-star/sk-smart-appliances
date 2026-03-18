@@ -64,7 +64,25 @@ nav ul {
 .buy-btn:hover {
     background-color: #25D366; /* WhatsApp Green on hover */
 }
-ooter {
+/* This makes your main title look bold and professional */
+h1 {
+    color: #2c3e50; /* A deep, professional blue */
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #3498db;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* This makes your WhatsApp button "pop" when hovered */
+a[href*="wa.me"]:hover {
+    background-color: #25D366; /* WhatsApp Green */
+    color: white;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+footer {
     background-color: #0A1A3C;
     color: white;
     padding: 40px 5% 10px 5%;
