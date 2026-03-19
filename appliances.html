@@ -95,6 +95,11 @@
 
         </div>
     </section>
+    <section> 
+        <div id="appliance-list" class="product-grid">
+           <p>Loading the latest stock...</p>
+        </div>
+    </section>
 </main>
         <footer>
     <div class="footer-content">
@@ -112,7 +117,53 @@
         &copy; 2026 SK Smart Appliances. All Rights Reserved.
     </div>
 </footer>
-    </seection>
+</section>
+<script>
+  // 1. Tell the script where your data is stored on GitHub
+  const repoUrl = 'https://api.github.com/repos/phillipnyinomujini-star/sk-smart-appliances/contents/content/appliances';
 
+  fetch(repoUrl)
+    .then(response => response.json())
+    .then(files => {
+      const container = document.getElementById('appliance-list');
+      container.innerHTML = ''; // Clear the "Loading" message
+
+      files.forEach(file => {
+        // 2. Only look for the markdown files (.md) created by the admin panel
+        if (file.name.endsWith('.md')) {
+          fetch(file.download_url)
+            .then(res => res.text())
+            .then(content => {
+              // 3. Extract the info from the file
+              // (Note: This matches the 'fields' we set in your config.yml)
+              const titleMatch = content.match(/title: "(.*)"/);
+              const priceMatch = content.match(/price: "(.*)"/);
+              const imageMatch = content.match(/image: "(.*)"/);
+
+              const name = titleMatch ? titleMatch[1] : "New Stock";
+              const price = priceMatch ? priceMatch[1] : "Ask for Price";
+              const image = imageMatch ? imageMatch[1] : "images/placeholder.jpg";
+
+              // 4. Create the HTML for the product card
+              const card = `
+                <div class="product-card" style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; margin: 10px; text-align: center;">
+                  <img src="${image}" alt="${name}" style="width:100%; max-height:200px; object-fit: contain;">
+                  <h3>${name}</h3>
+                  <p style="color: #27ae60; font-weight: bold;">UGX ${price}</p>
+                  <button style="background: #2c3e50; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">
+                    View Details
+                  </button>
+                </div>
+              `;
+              container.innerHTML += card;
+            });
+        }
+      });
+    })
+    .catch(err => {
+      console.error("Error loading products:", err);
+      document.getElementById('appliance-list').innerHTML = "Failed to load products.";
+    });
+</script>
 </body>
 </html>
